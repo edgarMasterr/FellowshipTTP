@@ -1,7 +1,7 @@
 # FellowshipTTP Home Challenge
 Program which is the result of the Home Challenge Fellowship TTP
 
-##Description
+###Description
 This Challenge is the Challenge #2 - Word Count Challenge
 
 ##Getting Started

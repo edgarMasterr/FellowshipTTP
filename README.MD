@@ -17,7 +17,7 @@ This Challenge is the Challenge #2 - Word Count Challenge
 * Inside the created folder mentioned in the installing process, run the program with the command java -jar TTP_Challenge2_EdgarRoman.jar
 
 ### Help
-If you have any problem running the jar file, you also will find the file TTP_Challenge2_EdgarRoman.zip. It has all the original project, feel free to unzip it and run it in your prefered IDE.
+If you have any problem running the jar file, you also will find the file TTP_Challenge2_EdgarRoman.zip. It has all the original project, feel free to unzip it and run it with your prefered IDE.
 
 ### Author
 

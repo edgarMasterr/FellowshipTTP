@@ -31,7 +31,6 @@ public class TextBreakeDown {
 		theText = removePunctuation(theText);
 		String[] words = theText.split("\\s+");
 		String numOfWrd = String.valueOf(words.length);
-//		System.out.println(words.length);
 		return numOfWrd;
 	}
 	
@@ -59,7 +58,6 @@ public class TextBreakeDown {
 		}
 
 		String numOfSents = String.valueOf(numberOfSentences);
-//		System.out.println(numOfSents);
 		return numOfSents;
 	}
 	
@@ -71,7 +69,7 @@ public class TextBreakeDown {
 	public String numberOfParaphs(String theText) {
 		String[] paragraphs = theText.split("\n");
 		
-		//controls multipe enters as a false paragraph
+		//controls multiple enters as a false paragraph
 		int blanks = 0;
 		for (int i=0; i<paragraphs.length; i++) {
 			if(paragraphs[i].isEmpty())
@@ -79,7 +77,6 @@ public class TextBreakeDown {
 		}
 		
 		String numOfParag = String.valueOf(paragraphs.length - blanks);
-//		System.out.println(paragraphs.length);
 		return numOfParag;
 	}
 	
@@ -124,7 +121,6 @@ public class TextBreakeDown {
         	numberOfBigrams = numberOfBigrams + 1;
         }
         
- //       System.out.println(numberOfBigrams);
         String numOfBigr = String.valueOf(numberOfBigrams);
         return numOfBigr;
 
@@ -155,7 +151,6 @@ public class TextBreakeDown {
 		String[] finalArry = new String[largestWord+1];
 		for (int i=0; i<=largestWord; i++) {
 			if(sizeOcurrency[i] != 0) {
-//				System.out.println("Number of words with " + i + " character are: " + sizeOcurrency[i]);
 				finalArry[i] = String.valueOf(sizeOcurrency[i]);				
 			}
 		}
@@ -168,12 +163,11 @@ public class TextBreakeDown {
 	 * @param theText Text to be Analyzed.
 	 * @return The code language (two letters) of the detected language
 	 */	
-	public String whatLanguage(String theText) throws IOException {
+	public String getLanguageFrom(String theText) throws IOException {
 	    
 		LanguageDetector detector = new OptimaizeLangDetector().loadModels();
 	    LanguageResult lr = detector.detect(theText);
 	    String theLanguageIs = expandedLanguage(lr.getLanguage());
-//	    System.out.println(theLanguageIs);
 	    return theLanguageIs;
 	}
 	
@@ -189,7 +183,6 @@ public class TextBreakeDown {
 		
 		//Return with the first letter as UpperCase
 		return theLanguage.substring(0, 1).toUpperCase() + theLanguage.substring(1);
-
 	}
 	
 	/**

@@ -176,7 +176,7 @@ public class MyTextAnalyzer extends JFrame {
 		results[1] = myTBD.numberOfSentences(enteredText);
 		results[2] = myTBD.numberOfParaphs(enteredText);
 		results[3] = myTBD.numbersOfBigrams(enteredText);
-		results[4] = myTBD.whatLanguage(enteredText);
+		results[4] = myTBD.getLanguageFrom(enteredText);
 		
 		return results;
 	}

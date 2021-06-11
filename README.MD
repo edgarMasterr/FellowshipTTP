@@ -8,7 +8,7 @@ This Challenge is the Challenge #2 - Word Count Challenge
 
 ### Pre conditions
 * JAVA 11 Installed in the computer where the program is going to run
-* An IDE Install in the computer to manipulate JAVA projects. (Eclipse was used to create this project)
+* An IDE Installed in the computer to manipulate JAVA projects. (Eclipse was used to create this project)
 
 ### Installing
 * Download the folder FellowShipChallenge which contains the Eclipse Project

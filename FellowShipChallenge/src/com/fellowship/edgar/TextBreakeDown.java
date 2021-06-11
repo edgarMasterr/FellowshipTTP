@@ -22,12 +22,28 @@ public class TextBreakeDown {
 	 */
 	public TextBreakeDown() {}
 	
+
+	/**
+	 * Method that calculates the number of characters that a text has. It doesn't include spaces
+	 * @param theText Text to be Analyzed.
+	 * @return As a String the number of words in the text.
+	 */
+	public String getNumberOfCharacters(String theText) {
+		String[] words = theText.split("\\s+");
+		int numOfChar = 0;
+		for(int i=0; i<words.length; i++) {
+			numOfChar = numOfChar + words[i].length();
+		}
+		String numOfChars = String.valueOf(numOfChar);
+		return numOfChars;
+	}	
+	
 	/**
 	 * Method that calculates the number of words that a text has.
 	 * @param theText Text to be Analyzed.
 	 * @return As a String the number of words in the text.
 	 */
-	public String numberOfWords(String theText) {
+	public String getNumberOfWords(String theText) {
 		theText = removePunctuation(theText);
 		String[] words = theText.split("\\s+");
 		String numOfWrd = String.valueOf(words.length);
@@ -39,7 +55,7 @@ public class TextBreakeDown {
 	 * @param theText Text to be Analyzed.
 	 * @return As a String the number of sentences in the text.
 	 */	
-	public String numberOfSentences(String theText) {
+	public String getNumberOfSentences(String theText) {
 		String[] phrases = theText.split("\\.");
 		
 		int blanks = 0;
@@ -50,7 +66,7 @@ public class TextBreakeDown {
 		}
 		
 		//if the number of paragraphs is bigger than phrases, the priority the number of paragraphs (Paragraphs with not period at the end).
-		int numberOfParagraphs = Integer.parseInt(numberOfParaphs(theText));
+		int numberOfParagraphs = Integer.parseInt(getNumberOfParaphs(theText));
 		int numberOfSentences = phrases.length - blanks;
 		
 		if(numberOfParagraphs > numberOfSentences) {
@@ -66,7 +82,7 @@ public class TextBreakeDown {
 	 * @param theText Text to be Analyzed.
 	 * @return As a String the number of paragraphs in the text.
 	 */	
-	public String numberOfParaphs(String theText) {
+	public String getNumberOfParaphs(String theText) {
 		String[] paragraphs = theText.split("\n");
 		
 		//controls multiple enters as a false paragraph
@@ -85,7 +101,7 @@ public class TextBreakeDown {
 	 * @param theText Text to be Analyzed.
 	 * @return As a String the number of bigrams in the text.
 	 */	
-	public String numbersOfBigrams(String theText) {
+	public String getNumbersOfBigrams(String theText) {
 		
 		theText = removePunctuation(theText);
 		String[] words = theText.split("\\s+");
@@ -131,7 +147,7 @@ public class TextBreakeDown {
 	 * @param theText Text to be Analyzed.
 	 * @return An array of Strings where the position i represents the number of letters of a word and the number inside the position i represents the ocurrency of this word in the text.
 	 */	
-	public String[] wordsByLength(String theText) {
+	public String[] getWordsByLength(String theText) {
 		
 		theText = removePunctuation(theText);
 		String[] words = theText.split("\\s+");
@@ -155,7 +171,6 @@ public class TextBreakeDown {
 			}
 		}
 		return finalArry;
-			
 	}
 	
 	/**
@@ -167,7 +182,7 @@ public class TextBreakeDown {
 	    
 		LanguageDetector detector = new OptimaizeLangDetector().loadModels();
 	    LanguageResult lr = detector.detect(theText);
-	    String theLanguageIs = expandedLanguage(lr.getLanguage());
+	    String theLanguageIs = getExpandedLanguage(lr.getLanguage());
 	    return theLanguageIs;
 	}
 	
@@ -176,7 +191,7 @@ public class TextBreakeDown {
 	 * @param language The code language
 	 * @return The language detected in one full word (not two letters).
 	 */	
-	public String expandedLanguage(String language) {
+	public String getExpandedLanguage(String language) {
 		
 		Locale loc = new Locale(language);
 		String theLanguage = loc.getDisplayLanguage(loc);

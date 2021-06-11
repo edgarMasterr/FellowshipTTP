@@ -18,13 +18,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
+
+/**
+ * This class generates the User Interface for the Word Counter
+ * @author Edgar Roman
+ * @version v1.0
+ */
 public class MyTextAnalyzer extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	
+	// Launch the application.
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,13 +46,13 @@ public class MyTextAnalyzer extends JFrame {
 
 	/**
 	 * This class creates the UI 
-	 * @author: Edgar Roman
-	 * @version: v1.0
+	 * @author Edgar Roman
+	 * @version v1.0
 	 */
 	public MyTextAnalyzer() {
 		setTitle("TextAnalyzer");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 717, 498);
+		setBounds(100, 100, 742, 571);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -63,51 +69,63 @@ public class MyTextAnalyzer extends JFrame {
 		contentPane.add(txtpnEnterTextTo);
 		
 		JLabel lblWordCount = new JLabel("Word Count");
-		lblWordCount.setBounds(500, 80, 108, 21);
+		lblWordCount.setBounds(500, 108, 108, 21);
 		contentPane.add(lblWordCount);
 		
 		JLabel lblSentenceCount = new JLabel("Sentence Count");
-		lblSentenceCount.setBounds(500, 104, 108, 21);
+		lblSentenceCount.setBounds(500, 137, 108, 21);
 		contentPane.add(lblSentenceCount);
 		
 		JLabel lblParagraphCount = new JLabel("Paragraph Count");
-		lblParagraphCount.setBounds(500, 133, 108, 21);
+		lblParagraphCount.setBounds(500, 166, 108, 21);
 		contentPane.add(lblParagraphCount);
 		
 		JLabel lblBigrams = new JLabel("Bigrams");
-		lblBigrams.setBounds(500, 162, 108, 21);
+		lblBigrams.setBounds(500, 198, 108, 21);
 		contentPane.add(lblBigrams);
 		
 		JLabel lblWordCountRslt = new JLabel("");
-		lblWordCountRslt.setBounds(613, 80, 47, 21);
+		lblWordCountRslt.setBounds(613, 108, 47, 21);
 		contentPane.add(lblWordCountRslt);
 		
 		JLabel lblSentenceCountRslt = new JLabel("");
-		lblSentenceCountRslt.setBounds(613, 104, 47, 21);
+		lblSentenceCountRslt.setBounds(613, 137, 47, 21);
 		contentPane.add(lblSentenceCountRslt);
 		
 		JLabel lblParagraphCountRslt = new JLabel("");
-		lblParagraphCountRslt.setBounds(613, 136, 47, 21);
+		lblParagraphCountRslt.setBounds(613, 166, 47, 21);
 		contentPane.add(lblParagraphCountRslt);
 		
 		JLabel lblBigramsRslt = new JLabel("");
-		lblBigramsRslt.setBounds(613, 162, 47, 21);
+		lblBigramsRslt.setBounds(613, 198, 47, 21);
 		contentPane.add(lblBigramsRslt);
 		
 		JLabel lblLanguage = new JLabel("Language");
-		lblLanguage.setBounds(500, 194, 108, 21);
+		lblLanguage.setBounds(500, 230, 108, 21);
 		contentPane.add(lblLanguage);
 		
 		JLabel lblLanguageRslt = new JLabel("");
-		lblLanguageRslt.setBounds(613, 194, 78, 21);
+		lblLanguageRslt.setBounds(613, 230, 78, 21);
 		contentPane.add(lblLanguageRslt);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(500, 238, 177, 210);
+		scrollPane.setBounds(500, 293, 177, 210);
 		contentPane.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		
+		JLabel lblCharacterCount = new JLabel("Character Count");
+		lblCharacterCount.setBounds(500, 80, 108, 21);
+		contentPane.add(lblCharacterCount);
+		
+		JLabel lblCharCountRslt = new JLabel("");
+		lblCharCountRslt.setBounds(613, 80, 47, 21);
+		contentPane.add(lblCharCountRslt);
+		
+		JLabel lblNewLabel = new JLabel("More Amazing Statics");
+		lblNewLabel.setBounds(500, 268, 134, 14);
+		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Analyze");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -119,6 +137,7 @@ public class MyTextAnalyzer extends JFrame {
 					lblParagraphCountRslt.setText("");
 					lblBigramsRslt.setText("");
 					lblLanguageRslt.setText("");
+					lblCharCountRslt.setText("");
 					textArea.setText("");
 					
 					String thisText = txtpnEnterTextTo.getText();
@@ -137,6 +156,7 @@ public class MyTextAnalyzer extends JFrame {
 						lblParagraphCountRslt.setText(theResults[2]);
 						lblBigramsRslt.setText(theResults[3]);
 						lblLanguageRslt.setText(theResults[4]);
+						lblCharCountRslt.setText(theResults[5]);
 					
 						String[] staticsRslt = getWordsStatics(thisText);
 						
@@ -159,7 +179,6 @@ public class MyTextAnalyzer extends JFrame {
 		});
 		btnNewButton.setBounds(33, 338, 89, 29);
 		contentPane.add(btnNewButton);
-	
 
 	}
 	
@@ -172,11 +191,12 @@ public class MyTextAnalyzer extends JFrame {
 		
 		String[] results = new String[6];
 		TextBreakeDown myTBD = new TextBreakeDown();
-		results[0] = myTBD.numberOfWords(enteredText);
-		results[1] = myTBD.numberOfSentences(enteredText);
-		results[2] = myTBD.numberOfParaphs(enteredText);
-		results[3] = myTBD.numbersOfBigrams(enteredText);
+		results[0] = myTBD.getNumberOfWords(enteredText);
+		results[1] = myTBD.getNumberOfSentences(enteredText);
+		results[2] = myTBD.getNumberOfParaphs(enteredText);
+		results[3] = myTBD.getNumbersOfBigrams(enteredText);
 		results[4] = myTBD.getLanguageFrom(enteredText);
+		results[5] = myTBD.getNumberOfCharacters(enteredText);
 		
 		return results;
 	}
@@ -188,6 +208,6 @@ public class MyTextAnalyzer extends JFrame {
 	 */	
 	protected String[] getWordsStatics(String enteredText) {
 		TextBreakeDown myTBD = new TextBreakeDown();
-		return myTBD.wordsByLength(enteredText);
+		return myTBD.getWordsByLength(enteredText);
 	}
 }

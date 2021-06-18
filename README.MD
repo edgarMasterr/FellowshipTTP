@@ -7,7 +7,8 @@ This Challenge is the Challenge #2 - Word Count Challenge.
 ## Getting Started
 
 ### Pre conditions
-* JAVA 11 Installed in the computer where the program is going to run
+* JAVA 11 Installed in the computer where the program is going to run.
+* Java environment variables correctly set up in the computer where the java was installed
 * An IDE Installed in the computer to manipulate JAVA projects. (Eclipse was used to create this project)
 
 ### Installing
